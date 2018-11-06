@@ -6,7 +6,7 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 variable "private_key_path" {}
 variable "key_name" {
-  default = "PluralsightKeys"
+  default = "deployer-key"
 }
 
 ##################################################################################
@@ -16,7 +16,7 @@ variable "key_name" {
 provider "aws" {
   access_key = "${var.aws_access_key}"
   secret_key = "${var.aws_secret_key}"
-  region     = "us-east-1"
+  region     = "ap-southeast-2"
 }
 
 ##################################################################################
@@ -24,7 +24,7 @@ provider "aws" {
 ##################################################################################
 
 resource "aws_instance" "nginx" {
-  ami           = "ami-c58c1dd3"
+  ami           = "ami-e428d986"
   instance_type = "t2.micro"
   key_name        = "${var.key_name}"
 
